@@ -1,0 +1,99 @@
+@import "tailwindcss";
+p {
+    margin: 0;
+    padding: 0;
+    
+}
+html, body {
+    overscroll-behavior-x: none;  /* blocage du rebond horizontal */
+    margin: 0;
+    padding: 0;
+}
+
+.scroll-container {
+  scroll-behavior: smooth;
+}
+
+
+/* Style global pour les barres de défilement */
+* {
+  scrollbar-width: thin; /* Pour Firefox */
+  scrollbar-color: #b0b0b0 transparent; /* Couleur du pouce et de la piste */
+}
+
+/* Pour les navigateurs WebKit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 6px; /* Largeur fine par défaut */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* Piste transparente */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #b0b0b0; /* Couleur du pouce */
+  border-radius: 10px; /* Arrondi */
+  border: 1px solid transparent; /* Bordure transparente */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #888; /* Couleur plus foncée au survol */
+  width: 10px; /* Élargissement au survol */
+  transition: width 0.2s ease, background-color 0.2s ease; /* Transition fluide */
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Masquer proprement la scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+@layer utilities {
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-out;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
